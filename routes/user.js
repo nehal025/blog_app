@@ -8,12 +8,14 @@ const { query } = require("express");
 router.get("/", (req, res) => {
   res.send("Welcome");
 });
+ 
 
 router.get("/:name", (req, res) => {
   //   Get all posts from DB
   Post.find({ "author.username": req.params.name }, (err, allposts) => {
     if (err) {
       console.log("Error in find");
+      console.log("err");
       console.log(err);
     } else {
       console.log(allposts);
